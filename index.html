@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>60 Qur'an Journey</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#f6f2e9;--card:#fbf9f3;--tx:#2b2f2c;--mu:#6b716b;--ln:#ded8c8;--pr:#4f7a62;--prs:#dbe7dd;--ac:#a98a4d;--cur:#2f5d46;--nb:#ece7d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161a17;--card:#1e2420;--tx:#e8e6dd;--mu:#9aa39b;--ln:#2e3630;--pr:#7fb094;--prs:#26382e;--ac:#cdb06f;--cur:#a9d8bd;--nb:#262d28}}
+:root[data-theme="dark"]{--bg:#161a17;--card:#1e2420;--tx:#e8e6dd;--mu:#9aa39b;--ln:#2e3630;--pr:#7fb094;--prs:#26382e;--ac:#cdb06f;--cur:#a9d8bd;--nb:#262d28}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3,.serif{font-family:"Lora",Georgia,"Times New Roman",serif;font-weight:600;margin:0}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:16px 16px 110px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0 14px}
+nav.d{display:flex;gap:4px;flex-wrap:wrap}
+nav a,.btn{border:1px solid var(--ln);background:var(--card);padding:8px 14px;border-radius:999px;cursor:pointer;min-height:40px;display:inline-flex;align-items:center}
+nav a[aria-current=page]{background:var(--pr);color:var(--bg);border-color:var(--pr)}
+.btn.p{background:var(--pr);color:var(--bg);border-color:var(--pr);font-weight:600}
+.btn.s{padding:4px 10px;min-height:32px;font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:18px;margin-bottom:14px}
+.mu{color:var(--mu)}.sm{font-size:.9rem}
+.hero{text-align:center;padding:26px 18px}
+.hero .big{font-size:clamp(2.4rem,9vw,3.6rem);line-height:1.1}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.bar{height:8px;background:var(--nb);border-radius:6px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--pr);transition:width .4s}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.it{display:block;border:1px solid var(--ln);background:var(--card);border-radius:12px;padding:12px;cursor:pointer}
+.it.done{background:var(--prs)}.it.cur{border-color:var(--cur);border-width:2px}
+.pg{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(54px,1fr))}
+.pc{border:1px solid var(--ln);background:var(--nb);border-radius:8px;min-height:44px;cursor:pointer}
+.pc.r{background:var(--prs);color:var(--cur);font-weight:600}
+.pc.c{outline:2px solid var(--cur);outline-offset:1px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal .card{max-width:420px;width:100%;margin:0;max-height:90vh;overflow:auto}
+label{display:block;margin:10px 0 4px}
+input,select,textarea{width:100%;padding:9px;border:1px solid var(--ln);border-radius:8px;background:var(--bg)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.chips .btn[aria-pressed=true]{background:var(--pr);color:var(--bg)}
+.fab{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+nav.m{display:none;position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--ln);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));justify-content:space-around;z-index:10}
+nav.m a{border:0;background:none;flex-direction:column;font-size:.78rem;padding:4px 6px;border-radius:8px}
+nav.m a[aria-current=page]{color:var(--cur);font-weight:700;background:var(--prs)}
+@media(max-width:640px){nav.d{display:none}nav.m{display:flex}.wrap{padding-bottom:150px}}
+.wk{display:flex;gap:8px;align-items:flex-end;height:70px}.wk div{flex:1;text-align:center;font-size:.75rem}.wk b{display:block;background:var(--pr);border-radius:4px 4px 0 0;min-height:3px}
+.heat{display:grid;grid-template-rows:repeat(7,auto);grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;max-width:360px;margin-top:10px}.heat span{aspect-ratio:1;border-radius:3px;background:var(--nb)}.heat span.on{background:var(--pr)}.heat span.x{background:none}
+.err{color:#b04a3a;font-size:.9rem;min-height:1.2em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#e8806f}}:root[data-theme="dark"] .err{color:#e8806f}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div id="ov"></div>
+<script>
+(function(){
+var J=[1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582],TP=604,G=60;
+var KEY="khatam60.v1",S={goal:G,started:false,k:{},sess:[],last:null,theme:"system"};
+try{var raw=localStorage.getItem(KEY);if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function jr(j){return[J[j-1],(J[j]||TP+1)-1]}
+function jlen(j){var r=jr(j);return r[1]-r[0]+1}
+function jOf(p){for(var j=30;j>=1;j--)if(p>=J[j-1])return j}
+function rd(k,p){return(S.k[k]||"")[p-1]==="1"}
+function cnt(k){var s=S.k[k]||"",n=0;for(var i=0;i<s.length;i++)if(s[i]==="1")n++;return n}
+function jc(k,j){var r=jr(j),n=0;for(var p=r[0];p<=r[1];p++)if(rd(k,p))n++;return n}
+function setP(k,a,b,v){var s=(S.k[k]||new Array(TP+1).join("0")).split(""),ch=0,L=[];for(var p=a;p<=b;p++){var x=v?"1":"0";if(s[p-1]!==x){s[p-1]=x;ch++;L.push(p)}}S.k[k]=s.join("");setP.L=L;return ch}
+function dk(d){d=d||new Date();return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function fmt(n){return n.toLocaleString("en-US")}
+function pct(a,b){return b?Math.min(100,a/b*100):0}
+function tot(){var kh=0,jz=0,pg=0;for(var k=1;k<=G;k++){var c=cnt(k);pg+=c;if(c===TP)kh++;if(c)for(var j=1;j<=30;j++)if(jc(k,j)===jlen(j))jz++}return{kh:kh,jz:jz,pg:pg}}
+function cur(){var k=S.last?S.last.k:1;while(k<=G&&cnt(k)===TP)k++;if(k>G)return null;var from=(S.last&&S.last.k===k?S.last.p:0)+1,p=null,i;for(i=from;i<=TP;i++)if(!rd(k,i)){p=i;break}if(!p)for(i=1;i<=TP;i++)if(!rd(k,i)){p=i;break}return{k:k,p:p,j:jOf(p)}}
+function streak(){var d=new Date(),set={};S.sess.forEach(function(s){if(!s.cu)set[s.d]=1});if(!set[dk(d)])d.setDate(d.getDate()-1);var n=0;while(set[dk(d)]){n++;d.setDate(d.getDate()-1)}return n}
+function today(){var t=dk(),n=0,a=1e9,b=0,j=0;S.sess.forEach(function(s){if(s.d===t&&!s.cu){n+=s.n;a=Math.min(a,s.a);b=Math.max(b,s.b);var f=0,len=s.b-s.a+1;for(var p=s.a;p<=s.b;p++)f+=1/jlen(jOf(p));j+=f*s.n/len}});return{n:n,a:a,b:b,j:j}}
+function bar(v){return'<div class="bar" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(v)+'"><i style="width:'+v+'%"></i></div>'}
+function chips(v,L,act){var c=window[v]||L[0][0];return'<div class="chips" role="group" aria-label="Filter">'+L.map(function(x){return'<button class="btn s" aria-pressed="'+(c===x[0])+'" data-a="'+act+'" data-f="'+x[0]+'">'+x[1]+'</button>'}).join("")+'</div>'}
+function canUndo(){var s=S.sess[S.sess.length-1];return s&&((s.ps&&s.ps.length)||(s.ex&&s.ex.length))?s:null}
+function undo(){var s=canUndo();if(!s)return;(s.ps||[]).forEach(function(p){setP(s.k,p,p,false)});(s.ex||[]).forEach(function(x){var a=(S.k[x[0]]||"").split("");if(a.length===TP){x[1].forEach(function(p){a[p-1]="0"});S.k[x[0]]=a.join("")}});S.sess.pop();var q=S.sess[S.sess.length-1];S.last=("pl" in s)?s.pl:(q?{k:q.k,p:q.b,t:q.t}:null);save()}
+function heat(){var m={};S.sess.forEach(function(s){if(!s.cu)m[s.d]=(m[s.d]||0)+s.n});var e=new Date(),st=new Date(e);st.setDate(st.getDate()-(77+((e.getDay()+6)%7)));var h='<div class="card"><h3>Last 12 weeks</h3><div class="heat" role="img" aria-label="Reading activity, last 12 weeks">';for(var i=0;i<84;i++){var d=new Date(st);d.setDate(st.getDate()+i);if(dk(d)>dk(e)){h+='<span class="x"></span>';continue}var n=m[dk(d)]||0;h+='<span class="'+(n?"on":"")+'" title="'+dk(d)+': '+n+' pages" style="opacity:'+(n?Math.min(1,.4+n/40):1)+'"></span>'}return h+'</div></div>'}
+function ring(v,txt,sub){var c=2*Math.PI*54;return'<svg width="170" height="170" viewBox="0 0 130 130" role="img" aria-label="'+txt+' '+sub+'"><circle cx="65" cy="65" r="54" fill="none" stroke="var(--nb)" stroke-width="9"/><circle cx="65" cy="65" r="54" fill="none" stroke="var(--pr)" stroke-width="9" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+(c*(1-v/100))+'" transform="rotate(-90 65 65)" style="transition:stroke-dashoffset .5s"/><text x="65" y="68" text-anchor="middle" class="serif" font-size="26" fill="var(--tx)">'+txt+'</text><text x="65" y="86" text-anchor="middle" font-size="9" fill="var(--mu)">'+sub+'</text></svg>'}
+function nav(r){var L=[["","Dashboard"],["khatams","Khatams"],["reading","Reading"],["history","History"],["settings","Settings"]];function m(c){return L.map(function(l){return'<a href="#/'+l[0]+'"'+(r[0]===l[0]||(l[0]==="khatams"&&r[0]==="k")?' aria-current="page"':"")+'>'+l[1]+'</a>'}).join("")}return{d:'<nav class="d" aria-label="Main">'+m()+'</nav>',m:'<nav class="m" aria-label="Main">'+m()+'</nav>'}}
+function applyTheme(){var h=document.documentElement;if(S.theme==="system")h.removeAttribute("data-theme");else h.setAttribute("data-theme",S.theme)}
+function route(){return(location.hash.replace(/^#\/?/,"")||"").split("/")}
+
+function dash(){var t=tot(),c=cur(),td=today(),st=streak(),h="";
+h+='<div class="card hero">'+ring(pct(t.pg,G*TP),Math.round(pct(t.pg,G*TP))+"%","complete")+'<div class="big serif">'+t.kh+' / '+G+'</div><div class="mu">Qur\'ans completed · '+pct(t.kh,G).toFixed(0)+'%</div><p class="sm mu" style="margin:10px 0 0">'+fmt(t.jz)+' / '+fmt(G*30)+' Juz &nbsp;·&nbsp; '+fmt(t.pg)+' / '+fmt(G*TP)+' pages</p></div>';
+if(!t.pg&&!S.last)h+='<div class="card"><h2>Your 60-Qur\'an journey begins here.</h2><p class="mu">Start with your first page.</p><a class="btn p" href="#/k/1">Start Khatam 1</a></div>';
+else if(!c)h+='<div class="card"><h2>Alhamdulillah — all '+G+' Khatams complete.</h2></div>';
+else{var n=cnt(c.k);h+='<div class="card"><h3>Continue reading</h3><div class="row" style="margin-top:8px"><div><div class="serif" style="font-size:1.4rem">Khatam '+c.k+' · Juz '+c.j+' · Page '+c.p+'</div><div class="mu sm">'+n+' / '+TP+' pages in this Khatam</div></div><a class="btn p" href="#/k/'+c.k+'/j/'+c.j+'">Continue reading</a></div>'+bar(pct(n,TP))+'<div class="mu sm">'+(S.last&&S.last.t?"Last read: "+new Date(S.last.t).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}):"")+'</div></div>'}
+h+='<div class="card"><div class="row"><h3>Today</h3><span><button class="btn s" data-a="log">Update today\'s reading</button>'+(canUndo()?' <button class="btn s" data-a="undo">Undo last entry</button>':'')+'</span></div><div class="row" style="margin-top:8px"><div><b class="serif" style="font-size:1.5rem">'+td.n+'</b> <span class="mu">pages</span></div><div><b class="serif" style="font-size:1.5rem">'+td.j.toFixed(1)+'</b> <span class="mu">Juz</span></div><div><b class="serif" style="font-size:1.5rem">'+st+'</b> <span class="mu">day streak</span></div></div>'+(td.n?'<p class="mu sm" style="margin:8px 0 0">You read pages '+td.a+'–'+td.b+' today.</p>':'<p class="mu sm" style="margin:8px 0 0">Nothing logged yet today.</p>')+'</div>';
+var days=[];for(var i=6;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);var k=dk(d),n2=0;S.sess.forEach(function(s){if(s.d===k&&!s.cu)n2+=s.n});days.push([d.toLocaleDateString("en-GB",{weekday:"short"}),n2])}
+var mx=Math.max.apply(null,days.map(function(x){return x[1]}).concat([1]));
+h+='<div class="card"><h3>This week</h3><div class="wk" style="margin-top:10px">'+days.map(function(x){return'<div title="'+x[1]+' pages"><b style="height:'+(x[1]/mx*50)+'px"></b>'+x[0]+'</div>'}).join("")+'</div></div>';
+var rc=S.sess.slice(-3).reverse();h+='<div class="card"><h3>Recent activity</h3>'+(rc.length?rc.map(function(s){return sline(s)}).join(""):'<p class="mu">Your reading history will appear here once you begin.</p>')+'</div>';
+var ms=[];if(t.jz>=1)ms.push("First Juz completed");if(t.kh>=1)ms.push("First Khatam completed");[10,20,30,40,50,60].forEach(function(x){if(t.kh>=x)ms.push(x+" Khatams completed")});
+h+='<p class="mu sm" style="text-align:center">'+(ms.length?ms.join(" · "):"Your first Khatam is waiting.")+'</p>';return h}
+function sline(s,nd){var d=new Date(s.t||s.d);return'<div class="row sm" style="padding:6px 0;border-top:1px solid var(--ln)"><span>'+(nd?"":d.toLocaleDateString("en-GB",{day:"numeric",month:"short"})+" · ")+(s.cu?'Catch-up · ':'')+'Khatam '+s.k+' · Pages '+s.a+'–'+s.b+(s.ex&&s.ex.length?' + earlier Khatams':'')+'</span><span class="mu">'+s.n+' page'+(s.n===1?"":"s")+'</span></div>'}
+
+function khs(){var t=tot(),ip=0;for(var k=1;k<=G;k++){var c=cnt(k);if(c>0&&c<TP)ip++}
+var h='<h1>My '+G+' Khatams</h1><p class="mu">'+t.kh+' completed · '+ip+' in progress · '+(G-t.kh-ip)+' remaining</p>'+chips("_kf",[["all","All"],["prog","In progress"],["done","Completed"],["new","Not started"]],"kf")+'<div class="grid">';
+for(var k=1;k<=G;k++){var c=cnt(k),jz=0,sk=c===TP?"done":c?"prog":"new";if(window._kf&&window._kf!=="all"&&window._kf!==sk)continue;if(c)for(var j=1;j<=30;j++)if(jc(k,j)===jlen(j))jz++;var st=c===TP?"✓ Completed":c?"In progress":"Not started";
+h+='<a class="it'+(c===TP?" done":"")+'" href="#/k/'+k+'"><b class="serif">Khatam '+k+'</b><div class="mu sm">'+jz+' / 30 Juz</div><div class="mu sm">'+c+' / '+TP+' pages · '+pct(c,TP).toFixed(1)+'%</div>'+bar(pct(c,TP))+'<div class="sm">'+st+'</div></a>'}
+return h+"</div>"}
+function khd(k){if(k<1||k>G||isNaN(k))return"<p>Khatam not found.</p>";var c=cnt(k),jz=0;for(var j=1;j<=30;j++)if(jc(k,j)===jlen(j))jz++;var cu=cur();
+var h='<p><a href="#/khatams" class="mu">← All Khatams</a></p><h1>Khatam '+k+'</h1><div class="card" style="margin-top:12px"><b class="serif">'+jz+' / 30 Juz</b> · '+c+' / '+TP+' pages · '+pct(c,TP).toFixed(1)+'%'+bar(pct(c,TP))+'</div><div class="grid">';
+for(var j=1;j<=30;j++){var r=jr(j),n=jc(k,j),L=jlen(j),isCur=cu&&cu.k===k&&cu.j===j;
+h+='<a class="it'+(n===L?" done":"")+(isCur?" cur":"")+'" href="#/k/'+k+'/j/'+j+'"><b class="serif">Juz '+j+'</b><div class="mu sm">Pages '+r[0]+'–'+r[1]+'</div>'+(n===L?'<div class="sm">✓ Complete</div>':n?'<div class="sm">'+n+' / '+L+' pages · '+Math.round(pct(n,L))+'%</div>'+bar(pct(n,L)):'<div class="mu sm">Not started</div>')+'</a>'}
+return h+"</div>"}
+function jd(k,j){if(k<1||k>G||j<1||j>30||isNaN(k)||isNaN(j))return"<p>Not found.</p>";var r=jr(j),n=jc(k,j),L=jlen(j),cu=cur();
+var h='<p><a href="#/k/'+k+'" class="mu">← Khatam '+k+'</a></p><h1>Juz '+j+'</h1><div class="card" style="margin-top:12px"><b>Pages '+r[0]+'–'+r[1]+'</b> · '+n+' / '+L+' pages'+bar(pct(n,L))+'</div><div class="pg">';
+for(var p=r[0];p<=r[1];p++){var rr=rd(k,p),isC=cu&&cu.k===k&&cu.p===p;h+='<button class="pc'+(rr?" r":"")+(isC?" c":"")+'" data-a="pg" data-k="'+k+'" data-p="'+p+'" aria-label="Page '+p+(rr?", read":", not read")+(isC?", current":"")+'">'+(rr?"✓ ":"")+p+'</button>'}
+return h+'</div><div class="row" style="margin-top:14px"><button class="btn" data-a="rng" data-k="'+k+'" data-a1="'+r[0]+'" data-b1="'+r[1]+'">Mark whole Juz read</button></div>'}
+function rdg(){var c=cur(),h='<h1>Reading</h1>';if(!c)return h+"<p>All Khatams complete.</p>";
+h+='<div class="card"><div class="serif" style="font-size:1.4rem">Currently reading Khatam '+c.k+' · Juz '+c.j+' · Page '+c.p+'</div><p class="mu">Next: page '+c.p+'</p><div class="row" style="justify-content:flex-start"><a class="btn p" href="#/k/'+c.k+'/j/'+c.j+'">Continue reading</a><button class="btn" data-a="plus">+1 Page</button></div></div><div class="card"><h3>Log reading</h3>'+form(c)+'</div>';return h}
+function form(c){c=c||cur()||{k:1,p:1};var o="";for(var k=1;k<=G;k++)o+='<option value="'+k+'"'+(k===c.k?" selected":"")+'>Khatam '+k+'</option>';
+return'<label for="fk">Khatam</label><select id="fk">'+o+'</select><div class="row" style="gap:10px;flex-wrap:nowrap"><div style="flex:1"><label for="fa">Starting page</label><input id="fa" type="number" inputmode="numeric" min="1" max="'+TP+'" value="'+c.p+'"></div><div style="flex:1"><label for="fb">Ending page</label><input id="fb" type="number" inputmode="numeric" min="1" max="'+TP+'" value="'+c.p+'"></div></div><div class="err" id="fe" role="alert"></div><button class="btn p" data-a="submit">Mark as read</button>'}
+function hist(){var f=window._hf||"all",now=Date.now(),lim={today:1,"7":7,"30":30}[f],h='<h1>History</h1><div class="chips" role="group" aria-label="Filter">';
+[["today","Today"],["7","7 days"],["30","30 days"],["all","All time"]].forEach(function(x){h+='<button class="btn s" aria-pressed="'+(f===x[0])+'" data-a="hf" data-f="'+x[0]+'">'+x[1]+'</button>'});h+="</div>";
+var l=S.sess.filter(function(s){if(!lim)return true;var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-(lim-1));return(s.t||0)>=d.getTime()}).reverse();
+var g=[],ix={};l.forEach(function(s){if(!(s.d in ix)){ix[s.d]=g.length;g.push({d:s.d,n:0,l:[]})}var o=g[ix[s.d]];o.n+=s.cu?0:s.n;o.l.push(s)});return h+heat()+'<div class="card">'+(g.length?g.map(function(o){return'<h3 style="font-size:1rem;margin-top:10px">'+new Date(o.l[0].t||o.d).toLocaleDateString("en-GB",{day:"numeric",month:"long"})+(o.n?' · '+o.n+' page'+(o.n===1?"":"s"):' · Catch-up')+'</h3>'+o.l.map(function(s){return sline(s,1)}).join("")}).join(""):'<p class="mu">Your reading history will appear here once you begin.</p>')+'</div>'}
+function sett(){return'<h1>Settings</h1><div class="card"><h3>Qur\'an</h3><p>Mushaf: Madinah — '+TP+' pages</p><h3>Goal</h3><p>'+G+' Khatams</p></div><div class="card"><h3>Appearance</h3><div class="chips" role="group" aria-label="Theme">'+["light","dark","system"].map(function(t){return'<button class="btn s" aria-pressed="'+(S.theme===t)+'" data-a="theme" data-t="'+t+'">'+t[0].toUpperCase()+t.slice(1)+'</button>'}).join("")+'</div></div><div class="card"><h3>Data</h3><div class="chips"><button class="btn s" data-a="exp">Export progress</button><button class="btn s" data-a="imp">Import progress</button><button class="btn s" data-a="reset">Reset progress</button></div><p class="sm mu">Your progress is saved on this device. Tap Export now and then, and keep the text somewhere safe as a backup.</p><textarea id="dt" rows="5" aria-label="Progress data" style="display:none"></textarea><div class="err" id="de" role="alert"></div><button class="btn s p" id="di" data-a="impgo" style="display:none">Import</button></div>'}
+
+function render(){var r=route(),h,n=nav(r);applyTheme();
+if(r[0]==="khatams")h=khs();else if(r[0]==="k"&&r[2]==="j")h=jd(+r[1],+r[3]);else if(r[0]==="k")h=khd(+r[1]);else if(r[0]==="reading")h=rdg();else if(r[0]==="history")h=hist();else if(r[0]==="settings")h=sett();else h=dash();
+document.getElementById("app").innerHTML='<div class="top"><div><div class="serif" style="font-size:1.25rem">60 Qur\'an Journey</div><div class="mu sm">'+new Date().toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"})+'</div></div><div class="row" style="gap:8px"><button class="btn s" data-a="theme2" aria-label="Toggle light or dark mode">◐ Light / Dark</button></div></div>'+n.d+'<main style="margin-top:14px">'+h+'</main>'+n.m+'<button class="btn p fab" data-a="log">+ Log reading</button>';
+if(!S.started&&!S.last&&!S.onboarded)onboard()}
+function modal(h){if(!document.querySelector("#ov .modal"))window._ret=document.activeElement;document.getElementById("ov").innerHTML='<div class="modal" data-a="close"><div class="card" role="dialog" aria-modal="true" aria-label="Dialog">'+h+'</div></div>';var f=document.querySelector("#ov input,#ov button,#ov select");if(f)f.focus()}
+function closeM(){window._lock=0;document.getElementById("ov").innerHTML="";var r=window._ret;window._ret=null;if(r&&document.contains(r)&&r.focus)r.focus()}
+function onboard(){window._lock=1;modal('<h2>Welcome to your 60 Qur\'an Journey</h2><p class="mu">Goal: 60 complete Qur\'ans<br>Mushaf: Madinah — '+TP+' pages</p><label><input type="radio" name="st" value="1" checked style="width:auto"> Start at page 1</label><label><input type="radio" name="st" value="c" style="width:auto"> Choose current page</label><div id="oc" style="display:none"><label for="ok">Khatam</label><input id="ok" type="number" min="1" max="'+G+'" value="1"><label for="oj">Juz</label><input id="oj" type="number" min="1" max="30" value="1"><label for="op">Page</label><input id="op" type="number" min="1" max="'+TP+'" value="1"><label style="display:flex;gap:8px;align-items:center;margin-top:12px"><input id="ocu" type="checkbox" checked style="width:auto"> Mark everything before this as already read</label></div><div class="err" id="oe" role="alert"></div><button class="btn p" data-a="ob">Begin</button>')}
+function commit(k,a,b){var ch=setP(k,a,b,true),was=cnt(k);if(ch>0){S.sess.push({d:dk(),t:Date.now(),k:k,a:a,b:b,n:ch,ps:setP.L,pl:S.last})}S.last={k:k,p:b,t:Date.now()};S.started=true;save();return ch}
+function catchUp(k,upto,ex){var ch=0,ps=[],X=[],q,c2;if(upto>=1){ch=setP(k,1,upto,true);ps=setP.L}if(ex)for(q=1;q<k;q++){c2=setP(q,1,TP,true);if(c2>0){X.push([q,setP.L]);ch+=c2}}if(ch>0)S.sess.push({d:dk(),t:Date.now(),k:k,a:1,b:Math.max(upto,1),n:ch,ps:ps,ex:X,cu:1,pl:S.last});S.last={k:k,p:upto,t:null};S.started=true;S.onboarded=true;save();return ch}
+function validate(k,a,b){if(!(Number.isInteger(k)&&k>=1&&k<=G))return"Choose a Khatam from 1 to "+G+".";if(!(Number.isInteger(a)&&Number.isInteger(b)&&a>=1&&a<=TP&&b>=1&&b<=TP))return"Page numbers must be between 1 and "+TP+".";if(b<a)return"The ending page must not come before the starting page.";return""}
+function doLog(k,a,b){var e=validate(k,a,b);if(e)return e;var before=cnt(k);commit(k,a,b);if(before<TP&&cnt(k)===TP){modal('<h2>Alhamdulillah — Khatam complete</h2><p>Khatam '+k+' of '+G+' completed.</p>'+(k<G?'<a class="btn p" href="#/k/'+(k+1)+'" data-a="close">Start Khatam '+(k+1)+'</a>':""));render();return""}closeM();render();return""}
+document.addEventListener("click",function(ev){var el=ev.target.closest("[data-a]");if(!el)return;var a=el.getAttribute("data-a");
+if(a==="close"){if(window._lock||(ev.target!==el&&!el.matches("a")))return;closeM();return}
+if(a==="log"){modal("<h3>Log reading</h3>"+form());return}
+if(a==="submit"){var e=doLog(+document.getElementById("fk").value,+document.getElementById("fa").value,+document.getElementById("fb").value);var x=document.getElementById("fe");if(x)x.textContent=e;return}
+if(a==="plus"){var c=cur();if(c)doLog(c.k,c.p,c.p);return}
+if(a==="pg"){var k=+el.dataset.k,p=+el.dataset.p,r=rd(k,p);modal('<h3>Page '+p+'</h3><p>Status: '+(r?"● Read":"○ Not read")+'</p><div class="chips"><button class="btn p" data-a="pset" data-k="'+k+'" data-p="'+p+'" data-v="1">Mark as read</button><button class="btn" data-a="pset" data-k="'+k+'" data-p="'+p+'" data-v="0">Mark as unread</button></div><div class="chips"><button class="btn" data-a="cu1" data-k="'+k+'" data-p="'+p+'">Mark everything up to here</button></div><p class="sm mu">Catching up? "Mark everything up to here" marks pages 1–'+p+' of this Khatam as read. For other ranges, use Log reading.</p>');return}
+if(a==="cu1"){var k6=+el.dataset.k,p6=+el.dataset.p,ep=false;for(var q6=1;q6<k6;q6++)if(cnt(q6)<TP)ep=true;modal('<h3>Mark everything up to page '+p6+' as read?</h3><p>Pages 1–'+p6+' of Khatam '+k6+' will be marked as read.</p>'+(ep?'<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="cuex" style="width:auto"> Also mark Khatams 1–'+(k6-1)+' as fully complete</label>':'')+'<p class="sm mu">Catch-up is not counted as today\'s reading or in your streak. You can undo it afterwards.</p><div class="chips"><button class="btn" data-a="close">Cancel</button><button class="btn p" data-a="cugo" data-k="'+k6+'" data-p="'+p6+'">Mark as read</button></div>');return}
+if(a==="cugo"){var k5=+el.dataset.k,p5=+el.dataset.p,cx=document.getElementById("cuex"),b5=cnt(k5);catchUp(k5,p5,!!(cx&&cx.checked));if(b5<TP&&cnt(k5)===TP)modal('<h2>Alhamdulillah — Khatam complete</h2><p>Khatam '+k5+' of '+G+' completed.</p>');else closeM();render();return}
+if(a==="pset"){var k2=+el.dataset.k,p2=+el.dataset.p;if(el.dataset.v==="1")doLog(k2,p2,p2);else{setP(k2,p2,p2,false);save();closeM();render()}return}
+if(a==="rng"){var k3=+el.dataset.k,a1=+el.dataset.a1,b1=+el.dataset.b1;modal('<h3>Mark pages '+a1+'–'+b1+' as read?</h3><div class="chips"><button class="btn" data-a="close">Cancel</button><button class="btn p" data-a="rgo" data-k="'+k3+'" data-a1="'+a1+'" data-b1="'+b1+'">Mark '+(b1-a1+1)+' pages read</button></div>');return}
+if(a==="rgo"){doLog(+el.dataset.k,+el.dataset.a1,+el.dataset.b1);return}
+if(a==="undo"){var u=canUndo();if(!u)return;modal('<h3>Undo the last entry?</h3><p>Khatam '+u.k+', pages '+u.a+'–'+u.b+' ('+u.n+' newly marked'+(u.ex&&u.ex.length?', including earlier Khatams':'')+') will go back to unread.</p><div class="chips"><button class="btn" data-a="close">Keep it</button><button class="btn p" data-a="undogo">Undo entry</button></div>');return}
+if(a==="undogo"){undo();closeM();render();return}
+if(a==="kf"){window._kf=el.dataset.f;render();return}
+if(a==="hf"){window._hf=el.dataset.f;render();return}
+if(a==="theme"){S.theme=el.dataset.t;save();render();return}
+if(a==="theme2"){var dark=document.documentElement.getAttribute("data-theme")==="dark"||(S.theme==="system"&&matchMedia("(prefers-color-scheme:dark)").matches);S.theme=dark?"light":"dark";save();render();return}
+if(a==="exp"){var t=document.getElementById("dt");t.style.display="block";t.value=JSON.stringify(S);t.select();return}
+if(a==="imp"){document.getElementById("dt").style.display="block";document.getElementById("dt").value="";document.getElementById("di").style.display="inline-flex";return}
+if(a==="impgo"){try{var o=JSON.parse(document.getElementById("dt").value);if(!o||typeof o.k!=="object"||!Array.isArray(o.sess))throw 0;var rx=new RegExp("^[01]{"+TP+"}$"),nk={};Object.keys(o.k).forEach(function(q){var kn=+q;if(kn>=1&&kn<=G&&typeof o.k[q]==="string"&&rx.test(o.k[q]))nk[kn]=o.k[q]});S.sess=o.sess.map(function(s){var pf=function(a){return Array.isArray(a)?a.map(Number).filter(function(p){return Number.isInteger(p)&&p>=1&&p<=TP}):undefined},r={d:String(s.d).replace(/[^0-9-]/g,""),t:+s.t||0,k:+s.k||1,a:+s.a||1,b:+s.b||1,n:+s.n||0,ps:pf(s.ps)};if(s.cu)r.cu=1;if(Array.isArray(s.ex))r.ex=s.ex.map(function(x){return[+x[0],pf(x[1])||[]]}).filter(function(x){return x[0]>=1&&x[0]<=G});if("pl" in s)r.pl=s.pl&&+s.pl.k>=1&&+s.pl.k<=G?{k:+s.pl.k,p:Math.min(TP,Math.max(0,+s.pl.p||0)),t:+s.pl.t||null}:null;return r});S.k=nk;S.last=o.last&&+o.last.k>=1&&+o.last.k<=G?{k:+o.last.k,p:Math.min(TP,Math.max(0,+o.last.p||0)),t:+o.last.t||null}:null;S.started=true;S.onboarded=true;save();render()}catch(e){document.getElementById("de").textContent="That data is not a valid progress export."}return}
+if(a==="reset"){modal('<h3>Reset all progress?</h3><p>This erases every page, session and Khatam. It cannot be undone.</p><div class="chips"><button class="btn" data-a="close">Keep my progress</button><button class="btn p" data-a="rgo2">Reset everything</button></div>');return}
+if(a==="rgo2"){S.k={};S.sess=[];S.last=null;S.started=false;S.onboarded=false;save();closeM();location.hash="#/";render();return}
+if(a==="ob"){var ch=document.querySelector('input[name=st]:checked').value;if(ch==="1"){S.last=null}else{var k4=+document.getElementById("ok").value,p4=+document.getElementById("op").value,j4=+document.getElementById("oj").value;if(!(Number.isInteger(k4)&&Number.isInteger(p4)&&k4>=1&&k4<=G&&p4>=1&&p4<=TP)){document.getElementById("oe").textContent="Check the Khatam and page numbers.";return}if(jOf(p4)!==j4&&j4>=1&&j4<=30){if(p4>jr(j4)[1]){document.getElementById("oe").textContent="Page "+p4+" is not in Juz "+j4+" (pages "+jr(j4)[0]+"–"+jr(j4)[1]+").";return}p4=Math.max(p4,J[j4-1])}if(document.getElementById("ocu").checked)catchUp(k4,p4-1,true);else S.last={k:k4,p:p4-1,t:null}}S.started=true;S.onboarded=true;save();closeM();location.hash="#/";render()}
+});
+document.addEventListener("change",function(ev){if(ev.target.name==="st"){var o=document.getElementById("oc");if(o)o.style.display=ev.target.value==="c"?"block":"none"}});
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape"&&!window._lock)closeM();if(ev.key==="Tab"){var m=document.querySelector("#ov .card");if(m){var q=m.querySelectorAll("button,input,select,textarea,a[href]");if(q.length){var a=q[0],z=q[q.length-1];if(ev.shiftKey&&document.activeElement===a){ev.preventDefault();z.focus()}else if(!ev.shiftKey&&document.activeElement===z){ev.preventDefault();a.focus()}}}}});
+window.addEventListener("hashchange",function(){if(!window._lock)closeM();render();window.scrollTo(0,0)});
+render();
+})();
+</script>
+</body>
+</html>
